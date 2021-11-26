@@ -24,4 +24,10 @@ SPRINT 1 (setmana 22-28):
   - Anàlisi de requisits (preguntes 1, 2, 3)
   - Casos d'us (pregunta 4)
   - Plantejament de funcionalitats per codificar
-
+  
+  DISTRIBUCIÓ DE TASQUES:
+  Durant aquest sprint ens hem dividit en dos subgrups:
+    Subgrup 1: (Mateu Serra, Daniel Pauli, Marc Sedó, Oleguer Gregori) encarregat de l'anàlisi de requisits
+    Subgrup 2: (Mateo Sesma, Gerard Gallardo, Gerard Jover, Oriol Prat) encarregat de fer l'anàlisi de funcionalitats previs a la codificació.
+  La tasca de trobar els casos d'us l'hem realitzat conjuntament.
+  Les tasques han sigut revisades per l'scrum master i pel subgrup que no ha realitzat la tasca.
