@@ -1,1 +1,22 @@
+BACKLOG:
+
+ANALISI DE REQUISITS:
+  - Pregunta 1: Requisits no funcionals
+  - Pregunta 2: Requisits funcionals
+  - Pregunta 3: Conflictes entre requisits
+
+DISSENY:
+  - Pregunta 4: Casos d'us
+  - Pregunta 5: Diagrames de cas d'us
+  - Pregunta 6: Diagrames d'activitat
+  - Pregunta 7: Diagrames de seqüència
+  - Pregunta 8: Diagrama de classes d'un cas
+  - Pregunta 9: Diagrama de classes d'un altre cas
+
+CODIFICACIÓ/IMPLEMENTACIÓ:
+  - Pregunta 10: Prototip Front-End
+  - Pregunta 11: Codificació d'algunes funcionalitats:
+    - Funcio 1
+    - Funcio 2
+    - ...
 
