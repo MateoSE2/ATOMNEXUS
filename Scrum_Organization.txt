@@ -16,7 +16,9 @@ DISSENY:
 CODIFICACIÓ/IMPLEMENTACIÓ:
   - Pregunta 10: Prototip Front-End
   - Pregunta 11: Codificació d'algunes funcionalitats:
-    - Funcio 1
-    - Funcio 2
-    - ...
-
+    - Lector codis de barres de productes per mostrar la informació nutricional (qualitat). I també registrar-lo a la base de dades de productes si és necessari. 
+    - Implementar una BBDD de receptes i productes amb un cercador de receptes per codi ID. També mostrar les receptes disponibles amb els ingredients que té el     client.
+    - Que l'aplicació pregunti diariament si el client ha menjat per evaluar el que ha mejat. D'aquesta manera l'aplicació pot portar un registre dels aliments que ha consumit el client i també el nombre de cops que ha menjat fora de casa (menys sá).
+ 
+ SPRINT 1:
+ 
