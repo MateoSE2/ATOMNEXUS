@@ -20,7 +20,7 @@ CODIFICACIÓ/IMPLEMENTACIÓ:
     - Implementar una BBDD de receptes i productes amb un cercador de receptes per codi ID. També mostrar les receptes disponibles amb els ingredients que té el client.
     - Que l'aplicació pregunti diariament si el client ha menjat per evaluar el que ha mejat. D'aquesta manera l'aplicació pot portar un registre dels aliments que ha consumit el client i també el nombre de cops que ha menjat fora de casa (menys sá).
  
-SPRINT 1 (setmana 22-28):
+SPRINT 1 (Novembre 22-28):
   - Anàlisi de requisits (preguntes 1, 2, 3)
   - Casos d'us (pregunta 4)
   - Plantejament de funcionalitats per codificar
