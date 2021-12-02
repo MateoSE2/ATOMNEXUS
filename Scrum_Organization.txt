@@ -31,3 +31,19 @@ SPRINT 1 (Novembre 22-28):
     Subgrup 2: (Mateo Sesma, Gerard Gallardo, Gerard Jover, Oriol Prat) encarregat de fer l'anàlisi de funcionalitats previs a la codificació.
   La tasca de trobar els casos d'us l'hem realitzat conjuntament.
   Les tasques han sigut validades per l'scrum master i pel subgrup que no ha realitzat la tasca.
+
+SPRINT 2 (Novembre 29 - Desembre 03):
+  - Diagrames de cas d'us (pregunta 5)
+  - Diagrames d'activitat (pregunta 6)
+  - Diagrama de classes de la BBDD (pregunta 8)
+  - Inici de la codificació:
+      - Funcionalitat llegir codi de barres
+      - Estructura de la BBDD
+  - Skech i Wireframe de la app
+  
+  DISTRIBUCIÓ DE TASQUES:
+  Durant aquest sprint ens hem dividit en dos subgrups:
+    Subgrup 1: (Daniel Pauli, Marc Sedó, Oleguer Gregori, Oriol Prat) encarregat dels diagrames de cas d'us i d'activitat.
+    Subgrup 2: (Mateo Sesma, Gerard Gallardo, Gerard Jover) encarregat de fer el diagrama de classes de la BBDD que s'implementará i de la codificació.
+    Mateu Serra: Skech i Wireframe de la aplicació.
+  Les tasques han sigut validades per l'scrum master i pel subgrup que no ha realitzat la tasca.
