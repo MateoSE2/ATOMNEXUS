@@ -40,10 +40,11 @@ SPRINT 2 (Novembre 29 - Desembre 03):
       - Funcionalitat llegir codi de barres
       - Estructura de la BBDD
   - Skech i Wireframe de la app
+  - Preparació de la presentació al client (Product Owner)
   
   DISTRIBUCIÓ DE TASQUES:
   Durant aquest sprint ens hem dividit en dos subgrups:
     Subgrup 1: (Daniel Pauli, Marc Sedó, Oleguer Gregori, Oriol Prat) encarregat dels diagrames de cas d'us i d'activitat.
     Subgrup 2: (Mateo Sesma, Gerard Gallardo, Gerard Jover) encarregat de fer el diagrama de classes de la BBDD que s'implementará i de la codificació.
-    Mateu Serra: Skech i Wireframe de la aplicació.
+    Mateu Serra: Skech i Wireframe de la aplicació i preparació de la presentació al client (Product Owner)
   Les tasques han sigut validades per l'scrum master i pel subgrup que no ha realitzat la tasca.
