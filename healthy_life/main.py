@@ -1,6 +1,11 @@
 import numpy as np
 import pandas as pd
 import warnings
+import cv2
+import matplotlib.pyplot as plt
+from pyzbar.pyzbar import decode
+
+
 
 pd.set_option("display.max_rows", None, "display.max_columns", None)
 warnings.filterwarnings('ignore')
@@ -9,6 +14,7 @@ from productes_db import ProductesDB, EnvasatsDB, GranelDB
 from ingredients_db import IngredientsDB
 from producte_ingredient_db import ProducteIngredientDB
 from receptes_db import ReceptesDB
+from decode import decode_image
 #from usuaris_db import UsuarisDB
 #from ingredients_recepta_db import IngredientsReceptaDB
 #from valoracions_db import ValoracionsDB
@@ -67,4 +73,19 @@ if __name__ == '__main__':
     product_id = 3
     print(f"Aconseguir informació del producte {product_id} ...")
     productes.get_informacio_ingredients(product_id, product_ingred, ingredients)
+    print("Fet!")
+
+    print("*" * 50)
+
+    print("Test decode...")
+    file_path = "/home/mat/Desktop/3.1/ES/PROJECTE/ATOMNEXUS/healthy_life/images/barcode_formatge.jpg"
+    barcode_file = file_path
+    img = cv2.imread(barcode_file)
+    img, _, data = decode_image(img)
+	# show the image
+    plt.figure()
+    plt.imshow(img)
+	# cv2.imwrite("barcode_detected.png", img)
+    cv2.waitKey(0)
+    print("Barcode data obtained:", data)
     print("Fet!")

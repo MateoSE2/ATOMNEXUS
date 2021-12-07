@@ -27,20 +27,6 @@ def draw_barcode(decoded, image):
                           thickness=5)
   return image
   
-#TEST: get barcode data
-def test_barcode (file_path):
-  barcode_file = file_path
-	# load the image to opencv
-	img = cv2.imread(barcode_file)
-	# decode detected barcodes & get the image
-	# that is drawn
-	img, _, data = decode_image(img)
-	# show the image
-	plt.figure()
-	plt.imshow(img)
-	# cv2.imwrite("barcode_detected.png", img)
-	cv2.waitKey(0)
-	print("Barcode data obtained:", data)
 
 
 
