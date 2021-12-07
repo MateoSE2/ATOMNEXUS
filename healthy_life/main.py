@@ -1,13 +1,9 @@
-#prova
-
 import numpy as np
 import pandas as pd
 import warnings
 import cv2
 import matplotlib.pyplot as plt
 from pyzbar.pyzbar import decode
-
-
 
 pd.set_option("display.max_rows", None, "display.max_columns", None)
 warnings.filterwarnings('ignore')
@@ -17,9 +13,9 @@ from ingredients_db import IngredientsDB
 from producte_ingredient_db import ProducteIngredientDB
 from receptes_db import ReceptesDB
 from decode import decode_image
-#from usuaris_db import UsuarisDB
+from usuaris_db import UsuarisDB
 #from ingredients_recepta_db import IngredientsReceptaDB
-#from valoracions_db import ValoracionsDB
+from valoracions_db import ValoracionsDB
 #from rebost_db import RebostDB
 
 DATA_PATH = "./data/"
@@ -90,4 +86,30 @@ if __name__ == '__main__':
 	# cv2.imwrite("barcode_detected.png", img)
     cv2.waitKey(0)
     print("Barcode data obtained:", data)
+    print("Fet!")
+    
+    print("Test usuaris...")
+    file_path = "C:/Users/gerar/ATOMNEXUS/healthy_life/data/usuaris_db.csv"
+    usuaris_db = UsuarisDB(file_path)
+    print("Creem l'usuari de prova...")
+    usuari = [999, "Joan", "Joan36"]
+    usuaris_db.add_usuari(usuari)
+    print("Mostrem l'usuari de prova...")
+    usuaris_db.show()
+    print("Eliminem l'usuari de prova i comprovem que el dataset està buit...")
+    usuaris_db.remove_usuari(usuari[0])
+    usuaris_db.show()
+    print("Fet!")
+    
+    print("Test valoracions...")
+    file_path = "C:/Users/gerar/ATOMNEXUS/healthy_life/data/valoracions_db.csv"
+    valoracions_db = ValoracionsDB(file_path)
+    print("Creem l'usuari de prova...")
+    valoracio = [998, 999, "3", "Excel·lent!"]
+    valoracions_db.add_valoracio(valoracio)
+    print("Mostrem l'usuari de prova...")
+    valoracions_db.show()
+    print("Eliminem l'usuari de prova i comprovem que el dataset està buit...")
+    valoracions_db.reset()
+    valoracions_db.show()
     print("Fet!")
