@@ -13,15 +13,12 @@ from ingredients_db import IngredientsDB
 from producte_ingredient_db import ProducteIngredientDB
 from receptes_db import ReceptesDB
 from decode import decode_image
-<<<<<<< HEAD
 from usuaris_db import UsuarisDB
 #from ingredients_recepta_db import IngredientsReceptaDB
 from valoracions_db import ValoracionsDB
-=======
 #from usuaris_db import UsuarisDB
 from ingredient_recepta_db import IngredientReceptaDB
 #from valoracions_db import ValoracionsDB
->>>>>>> af65f4db6474fb7c9c259473423726322e130cfc
 #from rebost_db import RebostDB
 
 DATA_PATH = "./data/"
