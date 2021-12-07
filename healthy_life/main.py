@@ -7,6 +7,8 @@ import cv2
 import matplotlib.pyplot as plt
 from pyzbar.pyzbar import decode
 
+
+
 pd.set_option("display.max_rows", None, "display.max_columns", None)
 warnings.filterwarnings('ignore')
 
@@ -57,8 +59,7 @@ if __name__ == '__main__':
     print("*" * 50)
 
     print("Test decode...")
-    file_path = "./images/barcode_formatge.jpg"
-    barcode_file = file_path
+    barcode_file = "./images/barcode_formatge.jpg"
     img = cv2.imread(barcode_file)
     img, _, data = decode_image(img)
 	# show the image
@@ -67,6 +68,7 @@ if __name__ == '__main__':
 	# cv2.imwrite("barcode_detected.png", img)
     cv2.waitKey(0)
     print("Barcode data obtained:", data)
+    print("Fet!")
 
     print("*" * 50)
 
@@ -94,4 +96,32 @@ if __name__ == '__main__':
 
     print("*" * 50)
 
+    print("Test ingredient_recepta_db...")
+    ingred_recepta = IngredientReceptaDB(DATA_PATH + "ingredient_recepta_db.csv")
+    ingred_recepta.show()
     print("Fet!")
+
+    print("*" * 50)
+
+    print("Test receptes_db...")
+    receptes = ReceptesDB(DATA_PATH + "receptes_db.csv")
+    receptes.show()
+    print("Afegint recepta...")
+    new_recepta = [999, "Recepta exemple", "Instruccions exemple", [1.1,2.2,3.3], 0]
+    receptes.add_recepta(new_recepta)
+    receptes.show()
+    print("Eliminant recepta...")
+    receptes.remove_recepta(999)
+    receptes.show()
+    #print("Aconseguint puntuació usuari...")
+    id_recepta = 0
+    nom_recepta = receptes.get_nom(id_recepta).item()
+    print(f"Aconseguint ingredients/quantitats de la recepta '{nom_recepta}' ...")
+    ing_quant = receptes.get_ingredients_and_quantitat(id_recepta, ingred_recepta, ingredients)
+    print(ing_quant)
+    print("Aconseguint macros...")
+    macros_recepta = receptes.get_macros(id_recepta, ingred_recepta, ingredients)
+    print(macros_recepta)
+    print("Fet!")
+
+    print("*" * 50)
