@@ -24,6 +24,9 @@ from decode import decode_image
 
 DATA_PATH = "./data/"
 IMAGES_PATH = "./images/"
+GERARD_LL_ROOT = ""
+GERARD_G_ROOT = ""
+MATEO_ROOT = "/home/mat/Desktop/3.1/ES/PROJECTE/ATOMNEXUS/"
 
 if __name__ == '__main__':
     print("Projecte Healthy_Life!")
