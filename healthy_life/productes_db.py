@@ -1,20 +1,24 @@
+import numpy as np
+import pandas as pd
+
+
 class ProductesDB:
 
   """ Init """
   def __init__(self, path):
-    self._db = pd.read_csv(path, index_col=0, converters={'macros': pd.eval})
+    self._db = pd.read_csv(path, index_col=0)
     self._db_backup = self._db.copy()
     self._path = path
 
   """ Methods """
   # Add and remove products
-  def add_product(self, product):
+  def add_producte(self, product):
     assert product[0] not in self._db.id, "El id no pot estar repetit a la base de dades"
     product_series = pd.Series(product, index = self._db.columns)
     self._db = self._db.append(product_series, ignore_index=True)
     self.save()
 
-  def remove_product(self, id):
+  def remove_producte(self, id):
     self._db = self._db[self._db.id != id]
     self.save()
 
@@ -49,11 +53,11 @@ class ProductesDB:
     # Mirar taula producte_ingredients
     ing_id_list = list(prod_ing_db.get_ingredients(id_producte))
     print("*** LLISTA D'INGREDIENTS DEL PRODUCTE ***")
-    for ingredient_id in ing_id_list:
+    for n, ingredient_id in enumerate(ing_id_list):
       ing_nom =  ing_db.get_nom(ingredient_id).item()
       ing_desc = ing_db.get_descripcio(ingredient_id).item()
-      print(ing_nom)
-      print(ing_desc)
+      print(f"{n}. {ing_nom}")
+      print("\t", ing_desc)
 
   """ Setters """
   def set_qualitat(self, id, qualitat):
@@ -62,7 +66,7 @@ class ProductesDB:
 
   """ Show database """
   def show(self):
-    display(self._db)
+    print(self._db)
 
   """ Reset database """
   def reset(self):
@@ -72,8 +76,8 @@ class ProductesDB:
   """ Save database """
   def save(self):
     self._db.to_csv(self._path)
-    
-    
+
+
 class EnvasatsDB(ProductesDB):
 
   """ Init """
@@ -93,8 +97,8 @@ class EnvasatsDB(ProductesDB):
 class GranelDB(ProductesDB):
 
   """ Init """
-  def __init__(super):
-    super().__init__()
+  def __init__(self, path):
+    super().__init__(path)
     self._db = self._db[self._db.tipus == "granel"]
     self._db = self._db.drop(["codebar", "tipus"], 1)
     self._db_backup = self._db.copy()

@@ -1,3 +1,7 @@
+import numpy as np
+import pandas as pd
+
+
 class ProducteIngredientDB:
 
   """ Init """
@@ -18,7 +22,7 @@ class ProducteIngredientDB:
 
   """ Show database """
   def show(self):
-    display(self._db)
+    print(self._db)
 
   """ Save database """
   def save(self):

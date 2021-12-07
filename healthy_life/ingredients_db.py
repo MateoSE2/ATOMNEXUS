@@ -1,3 +1,7 @@
+import numpy as np
+import pandas as pd
+
+
 class IngredientsDB:
 
   """ Init """
@@ -39,12 +43,12 @@ class IngredientsDB:
 
   """ Show database """
   def show(self):
-    display(self._db)
+    print(self._db)
 
   """ Reset database """
   def reset(self):
     self._db = self._db_backup
-  
+
   """ Save database """
   def save(self):
     self._db.to_csv(self._path)

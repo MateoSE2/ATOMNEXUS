@@ -1,5 +1,5 @@
 ,id,nom,qualitat,categoria,codebar,macros,tipus,pes_net
-0,0,Penne - Armando Pasta Italiana,9,Pasta,8005709104075,"[70.2, 14, 1.3]",envasat,
-1,1,Grana Padano - Hacendado,6,Formatge,8480000511461,"[0, 33, 29]",envasat,
-2,2,Tomate frito - Hacendado,5,Salsa,8480000171313,"[14.3, 1.6, 15]",envasat,
-3,3,Plátano de canárias,10,Fruita,,"[20.8, 1.2, 0.27]",granel,180
+0,0,Penne - Armando Pasta Italiana,9,Pasta,8005709104075.0,[70.2 14.0 1.3],envasat,
+1,1,Grana Padano - Hacendado,6,Formatge,8480000511461.0,[0 33 29],envasat,
+2,2,Tomate frito - Hacendado,5,Salsa,8480000171313.0,[14.3 1.6 15.0],envasat,
+3,3,Plátano de canárias,10,Fruita,,[20.8 1.2 0.27],granel,180.0
