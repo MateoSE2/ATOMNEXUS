@@ -1,6 +1,11 @@
+#prova
+
 import numpy as np
 import pandas as pd
 import warnings
+import cv2
+import matplotlib.pyplot as plt
+from pyzbar.pyzbar import decode
 
 pd.set_option("display.max_rows", None, "display.max_columns", None)
 warnings.filterwarnings('ignore')
@@ -9,6 +14,7 @@ from productes_db import ProductesDB, EnvasatsDB, GranelDB
 from ingredients_db import IngredientsDB
 from producte_ingredient_db import ProducteIngredientDB
 from receptes_db import ReceptesDB
+from decode import decode_image
 #from usuaris_db import UsuarisDB
 from ingredient_recepta_db import IngredientReceptaDB
 #from valoracions_db import ValoracionsDB
@@ -16,6 +22,9 @@ from ingredient_recepta_db import IngredientReceptaDB
 
 DATA_PATH = "./data/"
 IMAGES_PATH = "./images/"
+GERARD_LL_ROOT = ""
+GERARD_G_ROOT = ""
+MATEO_ROOT = "/home/mat/Desktop/3.1/ES/PROJECTE/ATOMNEXUS/"
 
 if __name__ == '__main__':
     print("Projecte Healthy_Life!")
@@ -47,6 +56,20 @@ if __name__ == '__main__':
 
     print("*" * 50)
 
+    print("Test decode...")
+    file_path = "./images/barcode_formatge.jpg"
+    barcode_file = file_path
+    img = cv2.imread(barcode_file)
+    img, _, data = decode_image(img)
+	# show the image
+    plt.figure()
+    plt.imshow(img)
+	# cv2.imwrite("barcode_detected.png", img)
+    cv2.waitKey(0)
+    print("Barcode data obtained:", data)
+
+    print("*" * 50)
+
     print("Test ingredients_db...")
     ingredients = IngredientsDB(DATA_PATH + "ingredients_db.csv")
     ingredients.show()
@@ -71,30 +94,4 @@ if __name__ == '__main__':
 
     print("*" * 50)
 
-    print("Test ingredient_recepta_db...")
-    ingred_recepta = IngredientReceptaDB(DATA_PATH + "ingredient_recepta_db.csv")
-    ingred_recepta.show()
-    print("Fet!")
-
-    print("*" * 50)
-
-    print("Test receptes_db...")
-    receptes = ReceptesDB(DATA_PATH + "receptes_db.csv")
-    receptes.show()
-    print("Afegint recepta...")
-    new_recepta = [999, "Recepta exemple", "Instruccions exemple", [1.1,2.2,3.3], 0]
-    receptes.add_recepta(new_recepta)
-    receptes.show()
-    print("Eliminant recepta...")
-    receptes.remove_recepta(999)
-    receptes.show()
-    #print("Aconseguint puntuació usuari...")
-    id_recepta = 0
-    nom_recepta = receptes.get_nom(id_recepta).item()
-    print(f"Aconseguint ingredients/quantitats de la recepta '{nom_recepta}' ...")
-    ing_quant = receptes.get_ingredients_and_quantitat(id_recepta, ingred_recepta, ingredients)
-    print(ing_quant)
-    print("Aconseguint macros...")
-    macros_recepta = receptes.get_macros(id_recepta, ingred_recepta, ingredients)
-    print(macros_recepta)
     print("Fet!")
