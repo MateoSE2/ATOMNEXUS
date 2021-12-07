@@ -1,5 +1,9 @@
 from glob import glob
 import matplotlib.pyplot as plt
+from pyzbar.pyzbar import decode
+import cv2
+
+#testing push
 
 def decode_image(image):
     # decodes all barcodes from an image
@@ -16,16 +20,16 @@ def decode_image(image):
 
     return image, obj.type, int(obj.data)
   
-  def draw_barcode(decoded, image):
-    image = cv2.rectangle(image, (decoded.rect.left, decoded.rect.top), 
-                            (decoded.rect.left + decoded.rect.width, decoded.rect.top + decoded.rect.height),
-                            color=(0, 255, 0),
-                            thickness=5)
-    return image
+def draw_barcode(decoded, image):
+  image = cv2.rectangle(image, (decoded.rect.left, decoded.rect.top), 
+                          (decoded.rect.left + decoded.rect.width, decoded.rect.top + decoded.rect.height),
+                          color=(0, 255, 0),
+                          thickness=5)
+  return image
   
 #TEST: get barcode data
-def test_barcode (file_path)
-	barcode_file = file_path
+def test_barcode (file_path):
+  barcode_file = file_path
 	# load the image to opencv
 	img = cv2.imread(barcode_file)
 	# decode detected barcodes & get the image
@@ -37,3 +41,9 @@ def test_barcode (file_path)
 	# cv2.imwrite("barcode_detected.png", img)
 	cv2.waitKey(0)
 	print("Barcode data obtained:", data)
+
+
+
+
+
+
