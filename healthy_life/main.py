@@ -10,7 +10,7 @@ from ingredients_db import IngredientsDB
 from producte_ingredient_db import ProducteIngredientDB
 from receptes_db import ReceptesDB
 #from usuaris_db import UsuarisDB
-#from ingredients_recepta_db import IngredientsReceptaDB
+from ingredient_recepta_db import IngredientReceptaDB
 #from valoracions_db import ValoracionsDB
 #from rebost_db import RebostDB
 
@@ -67,4 +67,34 @@ if __name__ == '__main__':
     product_id = 3
     print(f"Aconseguir informació del producte {product_id} ...")
     productes.get_informacio_ingredients(product_id, product_ingred, ingredients)
+    print("Fet!")
+
+    print("*" * 50)
+
+    print("Test ingredient_recepta_db...")
+    ingred_recepta = IngredientReceptaDB(DATA_PATH + "ingredient_recepta_db.csv")
+    ingred_recepta.show()
+    print("Fet!")
+
+    print("*" * 50)
+
+    print("Test receptes_db...")
+    receptes = ReceptesDB(DATA_PATH + "receptes_db.csv")
+    receptes.show()
+    print("Afegint recepta...")
+    new_recepta = [999, "Recepta exemple", "Instruccions exemple", [1.1,2.2,3.3], 0]
+    receptes.add_recepta(new_recepta)
+    receptes.show()
+    print("Eliminant recepta...")
+    receptes.remove_recepta(999)
+    receptes.show()
+    #print("Aconseguint puntuació usuari...")
+    id_recepta = 0
+    nom_recepta = receptes.get_nom(id_recepta).item()
+    print(f"Aconseguint ingredients/quantitats de la recepta '{nom_recepta}' ...")
+    ing_quant = receptes.get_ingredients_and_quantitat(id_recepta, ingred_recepta, ingredients)
+    print(ing_quant)
+    print("Aconseguint macros...")
+    macros_recepta = receptes.get_macros(id_recepta, ingred_recepta, ingredients)
+    print(macros_recepta)
     print("Fet!")

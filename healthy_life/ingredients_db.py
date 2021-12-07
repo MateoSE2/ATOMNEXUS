@@ -35,7 +35,9 @@ class IngredientsDB:
     return self._db[self._db.id == id].descripcio
 
   def get_macros(self, id):
-    return self._db[self._db.id == id].macros
+    tmp = self._db[self._db.id == id].macros
+    macros = pd.eval(tmp.values)[0] #Quan guardem a csv la llista es converteix en un string, amb eval ho tornem a convertir a llista
+    return macros
 
   """ Setters """
   def set_descripcio(self, id, descripcio):

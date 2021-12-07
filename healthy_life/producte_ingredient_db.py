@@ -24,6 +24,11 @@ class ProducteIngredientDB:
   def show(self):
     print(self._db)
 
+  """ Reset database """
+  def reset(self):
+    self._db = pd.DataFrame([], columns=self._db.columns)
+    self.save()
+
   """ Save database """
   def save(self):
     self._db.to_csv(self._path)
