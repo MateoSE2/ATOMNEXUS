@@ -14,12 +14,12 @@ from producte_ingredient_db import ProducteIngredientDB
 from receptes_db import ReceptesDB
 from decode import decode_image
 from usuaris_db import UsuarisDB
-#from ingredients_recepta_db import IngredientsReceptaDB
-from valoracions_db import ValoracionsDB
-#from usuaris_db import UsuarisDB
 from ingredient_recepta_db import IngredientReceptaDB
-#from valoracions_db import ValoracionsDB
-#from rebost_db import RebostDB
+from valoracions_db import ValoracionsDB
+from usuaris_db import UsuarisDB
+from ingredient_recepta_db import IngredientReceptaDB
+from valoracions_db import ValoracionsDB
+from rebost_db import RebostDB
 
 DATA_PATH = "./data/"
 IMAGES_PATH = "./images/"
@@ -33,15 +33,15 @@ if __name__ == '__main__':
     print("*" * 50)
 
     print("Test productes_db...")
-    productes = ProductesDB(DATA_PATH + "productes_db.csv")
-    productes.show()
+    productes_db = ProductesDB(DATA_PATH + "productes_db.csv")
+    productes_db.show()
     print("Afegint producte...")
     new_product = [999, "Producte exemple", 0, "Categoria", 1234567890987, [1.1,2.2,3.3], "envasat",  np.NaN]
-    productes.add_producte(new_product)
-    productes.show()
+    productes_db.add_producte(new_product)
+    productes_db.show()
     print("Eliminant producte...")
-    productes.remove_producte(999)
-    productes.show()
+    productes_db.remove_producte(999)
+    productes_db.show()
     print("Fet!")
 
     print("*" * 50)
@@ -90,7 +90,7 @@ if __name__ == '__main__':
     product_ingred.show()
     product_id = 3
     print(f"Aconseguir informació del producte {product_id} ...")
-    productes.get_informacio_ingredients(product_id, product_ingred, ingredients)
+    productes_db.get_informacio_ingredients(product_id, product_ingred, ingredients)
     print("Fet!")
 
     print("*" * 50)
@@ -99,30 +99,32 @@ if __name__ == '__main__':
     ingred_recepta = IngredientReceptaDB(DATA_PATH + "ingredient_recepta_db.csv")
     ingred_recepta.show()
     print("Fet!")
-    
-    print("Test usuaris...")
-    file_path = "C:/Users/gerar/ATOMNEXUS/healthy_life/data/usuaris_db.csv"
-    usuaris_db = UsuarisDB(file_path)
-    print("Creem l'usuari de prova...")
+
+    print("*" * 50)
+
+    print("Test usuaris_db...")
+    usuaris_db = UsuarisDB(DATA_PATH + "usuaris_db.csv")
+    usuaris_db.show()
+    print("Afegint usuari...")
     usuari = [999, "Joan", "Joan36"]
     usuaris_db.add_usuari(usuari)
-    print("Mostrem l'usuari de prova...")
     usuaris_db.show()
-    print("Eliminem l'usuari de prova i comprovem que el dataset està buit...")
-    usuaris_db.remove_usuari(usuari[0])
+    print("Eliminant usuari...")
+    usuaris_db.remove_usuari(999)
     usuaris_db.show()
     print("Fet!")
-    
+
+    print("*" * 50)
+
     print("Test valoracions...")
-    file_path = "C:/Users/gerar/ATOMNEXUS/healthy_life/data/valoracions_db.csv"
-    valoracions_db = ValoracionsDB(file_path)
-    print("Creem l'usuari de prova...")
+    valoracions_db = ValoracionsDB(DATA_PATH + "valoracions_db.csv")
+    valoracions_db.show()
+    print("Afegint relació usuari_recepta...")
     valoracio = [998, 999, "3", "Excel·lent!"]
     valoracions_db.add_valoracio(valoracio)
-    print("Mostrem l'usuari de prova...")
     valoracions_db.show()
-    print("Eliminem l'usuari de prova i comprovem que el dataset està buit...")
-    valoracions_db.reset()
+    print("Eliminant relació...")
+    valoracions_db.remove_valoracio(998, 999)
     valoracions_db.show()
     print("Fet!")
 
@@ -138,9 +140,11 @@ if __name__ == '__main__':
     print("Eliminant recepta...")
     receptes.remove_recepta(999)
     receptes.show()
-    #print("Aconseguint puntuació usuari...")
     id_recepta = 0
     nom_recepta = receptes.get_nom(id_recepta).item()
+    print(f"Aconseguint puntuació mitjana dels usuaris per la recepta '{nom_recepta}' ...")
+    puntuacio_usuaris = receptes.get_puntuacio_usuaris(id_recepta, valoracions_db)
+    print("Valoració dels usuaris:", puntuacio_usuaris)
     print(f"Aconseguint ingredients/quantitats de la recepta '{nom_recepta}' ...")
     ing_quant = receptes.get_ingredients_and_quantitat(id_recepta, ingred_recepta, ingredients)
     print(ing_quant)
@@ -150,3 +154,20 @@ if __name__ == '__main__':
     print("Fet!")
 
     print("*" * 50)
+
+    print("Test rebost_db...")
+    rebost_db = RebostDB(DATA_PATH + "rebost_db.csv")
+    rebost_db.show()
+    print("Afegint relació usuari_producte...")
+    rebost = [998, 999, 1]
+    rebost_db.add_rebost(rebost)
+    rebost_db.show()
+    print("Eliminant relació...")
+    rebost_db.remove_rebost(998, 999)
+    rebost_db.show()
+    id_usuari = 0
+    nom_usuari = usuaris_db.get_nom(id_usuari)
+    print(f"Mostrant productes de l'usuari '{nom_usuari}' ...")
+    prod_usuari = usuaris_db.get_productes_usuari(id_usuari, rebost_db, productes_db)
+    print(prod_usuari)
+    print("Fet!")

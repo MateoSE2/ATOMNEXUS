@@ -39,9 +39,11 @@ class ReceptesDB:
   def get_puntuacio_saludable(self, id):
      return self._db[self._db.id == id].puntuacio_saludable
 
-  def get_puntuacio_usuaris(self, id_recepta, id_usuari):
-    # mirar a taula valoracions
-    pass
+  def get_puntuacio_usuaris(self, id_recepta, valoracions_db):
+    valoracions_db.show()
+    valoracions = list(valoracions_db.get_valoracions_recepta(id_recepta))
+    valoracio_mitjana = np.mean(valoracions)
+    return valoracio_mitjana
 
   def get_ingredients_and_quantitat(self, id_recepta, ing_recep_db, ing_db):
     ingredients_list = list(ing_recep_db.get_ingredients(id_recepta))
@@ -63,9 +65,11 @@ class ReceptesDB:
   """ Setters """
   def set_instruccions(self, id, instruccions):
     self._db[self._db.id == id]["instruccions"] = instruccions
+    self.save()
 
   def set_puntuacio_saludable(self, id, puntuacio_saludable):
     self._db[self._db.id == id]["puntuacio_saludable"] = puntuacio_saludable
+    self.save()
 
   """ Show database """
   def show(self):
