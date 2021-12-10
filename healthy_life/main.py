@@ -23,9 +23,6 @@ from rebost_db import RebostDB
 
 DATA_PATH = "./data/"
 IMAGES_PATH = "./images/"
-GERARD_LL_ROOT = ""
-GERARD_G_ROOT = ""
-MATEO_ROOT = "/home/mat/Desktop/3.1/ES/PROJECTE/ATOMNEXUS/"
 
 if __name__ == '__main__':
     print("Projecte Healthy_Life!")
@@ -168,6 +165,17 @@ if __name__ == '__main__':
     id_usuari = 0
     nom_usuari = usuaris_db.get_nom(id_usuari)
     print(f"Mostrant productes de l'usuari '{nom_usuari}' ...")
-    prod_usuari = usuaris_db.get_productes_usuari(id_usuari, rebost_db, productes_db)
-    print(prod_usuari)
+    #prod_usuari = usuaris_db.get_productes_usuari(id_usuari, rebost_db, productes_db)
+    #print(prod_usuari)
     print("Fet!")
+
+    
+    print("*" * 50)
+    print("Test rebost add_product_from_codebar...")
+
+    rebost_db.add_product_from_codebar(envasats,0,barcode_file)
+
+    print("Fet!")
+    
+
+

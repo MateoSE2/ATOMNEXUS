@@ -20,9 +20,10 @@ class RebostDB:
     image = cv2.imread(path_image)
     image, _, data = decode_image(image)
     producte = envasats_db.get_from_codebar(data)
-    id_producte = producte.id
+    id_producte = int(producte.id)
     quantitat = 1 # correspondrà a l'input de l'usuari a la interfície gràfica.
     self.add_rebost([id_usuari, id_producte, quantitat])
+    self.save()
 
   def remove_rebost(self, id_usuari, id_producte):
     self._db = self._db[(self._db.id_usuari != id_usuari) & (self._db.id_producte != id_producte)]
