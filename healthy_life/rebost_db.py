@@ -1,4 +1,6 @@
 import pandas as pd
+from decode import decode_image
+import cv2
 
 class RebostDB:
 
@@ -13,6 +15,14 @@ class RebostDB:
     rebost_series = pd.Series(rebost, index = self._db.columns)
     self._db = self._db.append(rebost_series, ignore_index=True)
     self.save()
+    
+  def add_product_from_codebar(self, envasats_db, id_usuari, path_image):
+    image = cv2.imread(path_image)
+    image, _, data = decode_image(image)
+    producte = envasats_db.get_from_codebar(data)
+    id_producte = producte.id
+    quantitat = 1 # correspondrà a l'input de l'usuari a la interfície gràfica.
+    self.add_rebost([id_usuari, id_producte, quantitat])
 
   def remove_rebost(self, id_usuari, id_producte):
     self._db = self._db[(self._db.id_usuari != id_usuari) & (self._db.id_producte != id_producte)]
