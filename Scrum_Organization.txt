@@ -46,5 +46,20 @@ SPRINT 2 (Novembre 29 - Desembre 03):
   Durant aquest sprint ens hem dividit en dos subgrups:
     Subgrup 1: (Daniel Pauli, Marc Sedó, Oleguer Gregori, Oriol Prat) encarregat dels diagrames de cas d'us i d'activitat.
     Subgrup 2: (Mateo Sesma, Gerard Gallardo, Gerard Jover) encarregat de fer el diagrama de classes de la BBDD que s'implementará i de la codificació.
-    Mateu Serra: Skech i Wireframe de la aplicació i preparació de la presentació al client (Product Owner)
+    Mateu Serra: Skech i Wireframe de la aplicació i preparació de la presentació al client (Product Owner).
+  Les tasques han sigut validades per l'scrum master i pel subgrup que no ha realitzat la tasca.
+  
+
+SPRINT 3 (Desembre 06 - 12):
+  - Diagrames de seqüencia (pregunta 7)
+  - Wireframes extesos de les diferents pestanyes de la app.
+  - Actualització del codi:
+      - Implementació complerta de la BBDD.
+      - Interficie de consulta a l'usuari els àpats que ha realitzat a casa.
+
+  
+  DISTRIBUCIÓ DE TASQUES:
+  Durant aquest sprint ens hem dividit en dos subgrups:
+    Subgrup 1: (Daniel Pauli, Marc Sedó, Oleguer Gregori, Oriol Prat) encarregat dels diagrames de seqüencia i disseny dels wireframes.
+    Subgrup 2: (Mateo Sesma, Gerard Gallardo, Gerard Jover) encarregats de la implementació complerta de la BBDD i interficie de consulta a l'usuari els àpats que        ha realitzat a casa.
   Les tasques han sigut validades per l'scrum master i pel subgrup que no ha realitzat la tasca.
