@@ -163,17 +163,19 @@ if __name__ == '__main__':
     rebost_db.remove_rebost(998, 999)
     rebost_db.show()
     id_usuari = 0
-    nom_usuari = usuaris_db.get_nom(id_usuari)
+    nom_usuari = usuaris_db.get_nom(id_usuari).item()
     print(f"Mostrant productes de l'usuari '{nom_usuari}' ...")
-    #prod_usuari = usuaris_db.get_productes_usuari(id_usuari, rebost_db, productes_db)
-    #print(prod_usuari)
+    prod_usuari = usuaris_db.get_productes_usuari(id_usuari, rebost_db, productes_db)
+    print(prod_usuari)
     print("Fet!")
 
     
     print("*" * 50)
     print("Test rebost add_product_from_codebar...")
-
-    rebost_db.add_product_from_codebar(envasats,0,barcode_file)
+    usuaris_db.add_product_from_codebar(envasats,id_usuari,barcode_file,rebost_db)
+    print(f"Mostrant productes de l'usuari '{nom_usuari}' després d'afegir per codebar...")
+    prod_usuari = usuaris_db.get_productes_usuari(id_usuari, rebost_db, productes_db)
+    print(prod_usuari)
 
     print("Fet!")
     

@@ -1,4 +1,6 @@
 import pandas as pd
+import cv2
+from decode import decode_image
 
 class UsuarisDB:
 
@@ -36,9 +38,20 @@ class UsuarisDB:
      prod_usuari_dict = {}
      for id_producte in productes_id:
          nom = productes_db.get_nom(id_producte).item()
-         quantitat = rebost_db.get_quantitat(id_usuari, id_producte).item()
+         quantitat = int(rebost_db.get_quantitat(id_usuari, id_producte))
          prod_usuari_dict[nom] = quantitat
      return prod_usuari_dict
+
+  def add_product_from_codebar(self, envasats_db, id_usuari, path_image, rebost):
+    image = cv2.imread(path_image)
+    image, _, data = decode_image(image)
+    producte = envasats_db.get_from_codebar(data)
+    id_producte = int(producte.id)
+    quantitat = 1 # correspondrà a l'input de l'usuari a la interfície gràfica.
+    if rebost.get_quantitat(id_usuari, id_producte).empty:
+      rebost.add_rebost([id_usuari, id_producte, quantitat])
+    else:
+      rebost.set_quantitat(id_usuari, id_producte, quantitat)
 
   """ Setters """
   def set_alies(self, id, alies):
