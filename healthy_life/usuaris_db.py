@@ -1,6 +1,7 @@
 import pandas as pd
 import cv2
 from decode import decode_image
+from barcode_interficie import interficie
 
 class UsuarisDB:
 
@@ -47,11 +48,18 @@ class UsuarisDB:
     image, _, data = decode_image(image)
     producte = envasats_db.get_from_codebar(data)
     id_producte = int(producte.id)
-    quantitat = 1 # correspondrà a l'input de l'usuari a la interfície gràfica.
-    if rebost.get_quantitat(id_usuari, id_producte).empty:
-      rebost.add_rebost([id_usuari, id_producte, quantitat])
+    nom_producte = str(producte.nom)
+    m = producte.macros.tolist()
+    macros = [int(x) for x in m[0][1:-1].split()]
+    q = interficie(path_image,nom_producte,macros)
+    print("QUANTITAT:",q)
+    if q!= False:
+      if rebost.get_quantitat(id_usuari, id_producte).empty:
+        rebost.add_rebost([id_usuari, id_producte, q])
+      else:
+        rebost.set_quantitat(id_usuari, id_producte, q)
     else:
-      rebost.set_quantitat(id_usuari, id_producte, quantitat)
+      pass
 
   """ Setters """
   def set_alies(self, id, alies):

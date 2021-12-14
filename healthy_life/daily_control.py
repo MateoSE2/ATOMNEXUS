@@ -49,11 +49,15 @@ class App(tkinter.Tk):
 
         self.check_box_2 = customtkinter.CTkCheckBox(master=self.frame,
                                                      text="Dinar")
-        self.check_box_2.place(relx=0.4, rely=0.45, anchor=tkinter.W)
+        self.check_box_2.place(relx=0.4, rely=0.40, anchor=tkinter.W)
 
         self.check_box_3 = customtkinter.CTkCheckBox(master=self.frame,
+                                                     text="Berenar")
+        self.check_box_3.place(relx=0.4, rely=0.55, anchor=tkinter.W)
+
+        self.check_box_4 = customtkinter.CTkCheckBox(master=self.frame,
                                                      text="Sopar")
-        self.check_box_3.place(relx=0.4, rely=0.65, anchor=tkinter.W)
+        self.check_box_4.place(relx=0.4, rely=0.70, anchor=tkinter.W)
 
         self.button_1 = customtkinter.CTkButton(master=self.frame,
                                                 text="Guardar",
@@ -61,7 +65,7 @@ class App(tkinter.Tk):
                                                 border_width=0,
                                                 corner_radius=8)
 
-        self.button_1.place(relx=0.5, rely=0.85, anchor=tkinter.S)
+        self.button_1.place(relx=0.5, rely=0.90, anchor=tkinter.S)
 
     def button_event(self):
         esmorzar = self.check_box_1.check_state
