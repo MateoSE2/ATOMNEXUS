@@ -42,8 +42,10 @@ class ProductesDB:
     return self._db[self._db.id == id].qualitat
 
   def get_macros(self, id):
-    tmp = self._db[self._db.id == id].macros
-    macros = pd.eval(tmp.values)[0] #Quan guardem a csv la llista es converteix en un string, amb eval ho tornem a convertir a llista
+    macros = self._db[self._db.id == id]["macros"].item()
+    macros = macros.strip('][').split(' ')
+    macros = np.array(macros, dtype=float)
+    #macros = pd.eval(macros)[0] #Quan guardem a csv la llista es converteix en un string, amb eval ho tornem a convertir a llista
     return macros
 
   def get_categoria(self, id):

@@ -1,7 +1,7 @@
 import pandas as pd
 import cv2
 from decode import decode_image
-from barcode_interficie import interficie
+from barcode_interficie import Barcode_App
 
 class UsuarisDB:
 
@@ -43,23 +43,24 @@ class UsuarisDB:
          prod_usuari_dict[nom] = quantitat
      return prod_usuari_dict
 
-  def add_product_from_codebar(self, envasats_db, id_usuari, path_image, rebost):
+  def add_product_from_codebar(self, envasats_db, id_usuari, path_image, rebost_db):
+    # Decode image
     image = cv2.imread(path_image)
     image, _, data = decode_image(image)
+    # Get information
     producte = envasats_db.get_from_codebar(data)
     id_producte = int(producte.id)
-    nom_producte = str(producte.nom)
-    m = producte.macros.tolist()
-    macros = [int(x) for x in m[0][1:-1].split()]
-    q = interficie(path_image,nom_producte,macros)
-    print("QUANTITAT:",q)
-    if q!= False:
-      if rebost.get_quantitat(id_usuari, id_producte).empty:
-        rebost.add_rebost([id_usuari, id_producte, q])
+    nom_producte = str(producte.nom.item())
+    macros = envasats_db.get_macros(id_producte)
+    # Interface
+    barcode_app = Barcode_App(path_image, nom_producte, macros)
+    # Add new quantity
+    q = barcode_app.new_quantitat
+    if q is not None:
+      if rebost_db.get_quantitat(id_usuari, id_producte).empty:
+        rebost_db.add_rebost([id_usuari, id_producte, q])
       else:
-        rebost.set_quantitat(id_usuari, id_producte, q)
-    else:
-      pass
+        rebost_db.set_quantitat(id_usuari, id_producte, q)
 
   """ Setters """
   def set_alies(self, id, alies):
