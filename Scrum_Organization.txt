@@ -63,3 +63,18 @@ SPRINT 3 (Desembre 06 - 12):
     Subgrup 1: (Daniel Pauli, Marc Sedó, Oleguer Gregori, Oriol Prat) encarregat dels diagrames de seqüencia i disseny dels wireframes.
     Subgrup 2: (Mateo Sesma, Gerard Gallardo, Gerard Jover) encarregats de la implementació complerta de la BBDD i interficie de consulta a l'usuari els àpats que        ha realitzat a casa.
   Les tasques han sigut validades per l'scrum master i pel subgrup que no ha realitzat la tasca.
+  
+  SPRINT 4 (Desembre 13 - 19):
+  - Fer el diagrama definitiu de classes (pregunta 8)
+  - Diagrama de classes (pregunta 8)
+  - Actualització del codi:
+      - Interficie log in.
+      - Interficie lector del codi de barres.
+      - Interficie general
+
+  
+  DISTRIBUCIÓ DE TASQUES:
+  Durant aquest sprint ens hem dividit en dos subgrups:
+    Subgrup 1: (Daniel Pauli, Marc Sedó, Oleguer Gregori, Oriol Prat) encarregat dels diagrames de seqüencia.
+    Subgrup 2: (Mateo Sesma, Gerard Gallardo, Gerard Jover) encarregats de la implementació de les interfícies.
+  Les tasques han sigut validades per l'scrum master i pel subgrup que no ha realitzat la tasca.
