@@ -47,75 +47,39 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-<Descripció del projecte>
+
+Aques projecte recull tots els procéssos de creació d'un software: anàlisi de requisits, disseny i implementació. Concretament es tracta d'una aplicació per una empresa de nutrició.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Built With
-<Software, llenguatge i llibreries utilitzades>
+S'ha utilitzat python3 per la implementació, juntament amb algunes llibreries gràfiques com TKINTER. La part de la BBDD sha implementat amb arxius csv manipulats amb la llibreria Pandas.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-## Getting Started
-<Instruccions per fer anar el codi>
-  
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-### Prerequisites
-<Prerequisits>
-  
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-### Installation
-<Instal·lació>
-  
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 <!-- USAGE EXAMPLES -->
-## Usage
-<Com correr el codi amb exemples>
+### Usage
+Per executar el codi es pot executar l'arxiu main.py que funciona com a test de les funcionalitats de l'aplicació. D'altra banda per executar les interfícies es poden executar els arxius corresponents a cadascuna de les interfícies independentment.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- ROADMAP -->
-## Roadmap
-<Explicació pas per pas>
-  
+### Roadmap
+La informació de com s'ha organitzat l'equip es troba a l'arxiu scrum_organization.txt  
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 <!-- CONTRIBUTING -->
-## Contributing
-<Contribuidors al projecte>
+### Contributing
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+• Scrum Master: Mateo Sesma - 1568353.
 
+• Product Owner 1: Mateu Serra – 1522956
 
+• Product Owner 2: Gerard Jover – 1527033
 
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-<Reconeixements>
+• Scrum Team:
+Mateu Serra – 1522956, Marc Sedó – 1564815, Gerard Gallardo – 1563397, Oriol Prat – 1565096, Oleguer Gregori – 1566780, Daniel Paulí – 1568073, Gerard Jover – 1527033
 
 <p align="right">(<a href="#top">back to top</a>)</p>
