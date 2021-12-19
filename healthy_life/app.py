@@ -22,8 +22,8 @@ class App:
     def __init__(self):
 
         # 1. Login
-        self.login = Login_App()
-        self.login.start()
+        login = Login_App()
+        login.start()
         print("CLOSE?")
 
         self.user = self.login.user
@@ -34,6 +34,8 @@ class App:
         print("User:", self.user, "Password:", self.password)
         print("User id:", self.id_usuari)
         self.mainframe = Mainframe_App(self.id_usuari)
+
+        # 2. Options menu
 
 if __name__ == "__main__":
     app = App()
